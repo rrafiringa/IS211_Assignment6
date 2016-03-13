@@ -1,14 +1,9 @@
 #!/usr/bin/env python
-# -*- Coding: utf-8 -*_
+# -*- Coding: utf-8 -*-
 
 """
 Conversion functions
 """
-
-import decimal as dec
-
-# Set decimal precision
-# dec.getcontext().prec = 30
 
 
 def fahr_to_celsius(fahr):
@@ -17,7 +12,9 @@ def fahr_to_celsius(fahr):
     :param fahr: (Decimal) - Units in Fahrenheit
     :return: (Decimal): Units in celsius
     """
-    return dec.Decimal((fahr - 32) * dec.Decimal(5/9))
+    a = float(fahr) - 32.0
+    b = 5.0 / 9
+    return a * b
 
 
 def fahr_to_kelvin(fahr):
@@ -26,7 +23,10 @@ def fahr_to_kelvin(fahr):
     :param fahr: (Decimal) - Units in Fahrenheit
     :return: (Decimal) - Units in Kelvin
     """
-    return dec.Decimal((fahr + 459.67) * 5/9)
+    a = float(fahr)
+    b = 459.67
+    c = 5.0 / 9
+    return (a + b) * c
 
 
 def celsius_to_fahr(celsius):
@@ -35,8 +35,10 @@ def celsius_to_fahr(celsius):
     :param celsius: (Decimal) - Units in Celsius
     :return: (Decimal) Units in Fahrenheit
     """
-    return (dec.Decimal(celsius) * 9/5) \
-           + dec.Decimal(32)
+    a = float(celsius)
+    b = 9.0 / 5
+    c = 32.0
+    return (a * b) + c
 
 
 def celsius_to_kelvin(celsius):
@@ -45,7 +47,9 @@ def celsius_to_kelvin(celsius):
     :param celsius: (Decimal) Units in Celsius
     :return: (Decimal) - Units in Kelvin
     """
-    return dec.Decimal(celsius + 273.15)
+    a = float(celsius)
+    b = 273.15
+    return a + b
 
 
 def kelvin_to_fahr(kelvin):
@@ -54,8 +58,10 @@ def kelvin_to_fahr(kelvin):
     :param kelvin: (Decimal) - Units in Kelvin
     :return: (Decimal) - Units in Fahrenheit
     """
-    return dec.Decimal((kelvin * 9/5)) \
-           - dec.Decimal(459.67)
+    a = float(kelvin)
+    b = 9.0 / 5
+    c = 459.67
+    return a * b - c
 
 
 def kelvin_to_celsius(kelvin):
@@ -64,13 +70,16 @@ def kelvin_to_celsius(kelvin):
     :param kelvin: (Decimal) - Units in Kelvin
     :return: (Decimal) - Units in Celsius
     """
-    return dec.Decimal(kelvin - 273.15)
+    a = float(kelvin)
+    b = 273.15
+    return a - b
 
 
 if __name__ == '__main__':
-    print 'F to C: ', fahr_to_celsius(100)
-    print 'F to K: ', fahr_to_kelvin(100)
-    print 'C to F: ', celsius_to_fahr(100)
-    print 'C to K: ', celsius_to_kelvin(100)
-    print 'K to C: ', kelvin_to_celsius(100)
-    print 'K to F: ', kelvin_to_fahr(100)
+    val = 0
+    print 'F to C: ', fahr_to_celsius(val)
+    print 'F to K: ', fahr_to_kelvin(val)
+    print 'C to F: ', celsius_to_fahr(val)
+    print 'C to K: ', celsius_to_kelvin(val)
+    print 'K to C: ', kelvin_to_celsius(val)
+    print 'K to F: ', kelvin_to_fahr(val)
